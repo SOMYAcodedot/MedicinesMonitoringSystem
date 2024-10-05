@@ -1,0 +1,371 @@
+/* General styles for the app container */
+.app-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* Navigation bar styles */
+.nav-bar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  background-color: #333;
+  padding: 10px;
+  margin: 0;
+}
+
+.nav-bar ul li {
+  margin: 0;
+}
+
+.nav-bar ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.nav-bar ul li a:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+/* Homepage styles */
+
+.home-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three cards per row */
+  gap: 20px; /* Adds space between the cards */
+  margin-top: 40px;
+}
+
+.feature-card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, background-color 0.3s;
+  padding: 20px;
+  text-align: left;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  background-color: #e0f7fa; /* Changes background color on hover */
+}
+
+.feature-card:hover:nth-child(odd) {
+  background-color: #d1c4e9; /* Different color for odd cards */
+}
+
+.feature-card:hover:nth-child(even) {
+  background-color: #ffcdd2; /* Different color for even cards */
+}
+
+.feature-img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.feature-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.feature-info {
+  font-size: 1rem;
+  color: #666;
+}
+
+.login-button {
+  margin-top: 40px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive design: when screen width is smaller, adjust the number of columns */
+@media (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on medium-sized screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr; /* 1 card per row on small-sized screens */
+  }
+}
+
+
+/* About.css */
+
+/* General styles for the about container */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Styles for the heading */
+.about-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #007BFF; /* Primary color */
+}
+
+/* Paragraph styles */
+.about-container p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Closing statement styles */
+.closing-statement {
+  font-size: 1.2rem;
+  margin-top: 40px; /* Space above closing statement */
+  color: #555; /* Slightly muted color for contrast */
+}
+
+/* Features section styles */
+.features-section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Space between card rows */
+}
+
+/* Card row styles */
+.card-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Horizontal space between cards */
+}
+
+/* Additional gap between cards */
+.card-row > .flip-card {
+  margin: 20px; /* Space around each card */
+}
+
+/* Flip card wrapper */
+.flip-card {
+  background-color: transparent;
+  width: 280px; /* Card width */
+  height: 320px; /* Card size */
+  perspective: 1000px; /* To give the 3D effect */
+}
+
+/* Flip card inner */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1.2s; /* Smooth flipping */
+  transform-style: preserve-3d;
+}
+
+/* Flip card on hover */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front and back faces of the card */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex; /* Flexbox for centering content */
+  flex-direction: column;
+  justify-content: center; /* Centering content vertically */
+  align-items: center; /* Centering content horizontally */
+}
+
+/* Front styles */
+.flip-card-front {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+/* Back styles */
+.flip-card-back {
+  background-color: #fff9e6; /* Faint yellow for flipped card */
+  color: black;
+  transform: rotateY(180deg);
+}
+
+/* Image inside the card */
+.feature-img {
+  width: 100%;
+  height: 200px; /* Set the image height */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Heading styles */
+.flip-card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Paragraph styles */
+.flip-card p {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .features-section {
+    flex-direction: column; /* Stack on smaller screens */
+  }
+
+  .flip-card {
+    width: 90%; /* Adjust card width */
+    height: auto; /* Auto height */
+  }
+}
+
+/* Footer styles */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: relative; /* Changed to relative */
+  width: 100%;
+  bottom: 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-left p {
+  font-size: 14px;
+  margin: 0;
+}
+
+
+/* quality-check, reports, notifications, approval-dashboard, settings CSS Styles */
+
+.quality-check,
+.reports,
+.notifications,
+.approval-dashboard,
+.settings {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.quality-check button,
+.approval-dashboard button {
+  margin: 10px;
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.quality-check button:hover,
+.approval-dashboard button:hover {
+  background-color: #45a049;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+
+/* Login page styles */
+.login-container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-container form div {
+  margin-bottom: 10px;
+}
+
+.login-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #0056b3;
+}
