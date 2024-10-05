@@ -369,3 +369,118 @@ th {
 .login-container button:hover {
   background-color: #0056b3;
 }
+
+/* Contact.css */
+
+.contact-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contact-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333333;
+  font-size: 2em;
+}
+
+.submitted-message {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  text-align: center;
+  font-size: 1.2em;
+  color: #4CAF50;
+  padding: 20px;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  background-color: #f0fff0;
+}
+
+.submitted-message.show {
+  opacity: 1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555555;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 1em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  .contact-container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .contact-container h2 {
+    font-size: 1.5em;
+  }
+}

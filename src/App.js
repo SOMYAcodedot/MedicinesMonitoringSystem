@@ -13,6 +13,7 @@ import Reports from './components/Reports'; // New component
 import Notifications from './components/Notifications'; // New component
 import ApprovalDashboard from './components/ApprovalDashboard'; // New component
 import Settings from './components/Settings'; // New component
+import Contact from './components/Contact'; // Import Contact component
 import './App.css';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           {/* Public routes */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} /> {/* Added Contact route */}
           <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
 
           {/* Protected routes */}
