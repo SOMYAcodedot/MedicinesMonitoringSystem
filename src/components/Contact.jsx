@@ -3,9 +3,8 @@ import { FaCheck } from "react-icons/fa";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    Hospital_name: "",
-    Hospital_email:"",
-    medicalIssue: "",
+    hospitalName: "",
+    hospitalEmail: "",
     remark: "",
   });
   const [submitted, setSubmitted] = useState(false);
@@ -22,6 +21,7 @@ const Contact = () => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     setSubmitted(true);
+    // You can also add form submission logic here (e.g., send data to a server)
   };
 
   return (
@@ -34,45 +34,23 @@ const Contact = () => {
       ) : (
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="name">Name:</label>
+            <label htmlFor="hospitalName">Hospital Name:</label>
             <input
               type="text"
-              id="name"
-              name="name"
-              value={formData.name}
+              id="hospitalName"
+              name="hospitalName"
+              value={formData.hospitalName}
               onChange={handleChange}
               required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="hospitalEmail">Hospital Email:</label>
             <input
               type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="phone">Phone Number:</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-              pattern="[0-9]{10}"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="medicalIssue">Medical Issue:</label>
-            <textarea
-              id="medicalIssue"
-              name="medicalIssue"
-              value={formData.medicalIssue}
+              id="hospitalEmail"
+              name="hospitalEmail"
+              value={formData.hospitalEmail}
               onChange={handleChange}
               required
             />
