@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import autoqualitycheck from '../Images/autoqualitycheck.jpg';
 import dashboard from '../Images/dashboard.png';
@@ -40,7 +40,36 @@ const features = [
   },
 ];
 
+const faqs = [
+  {
+    question: 'How does the system ensure compliance with medical and quality standards?',
+    answer: 'The system is integrated with up-to-date regulations and quality standards (e.g., FDA, ISO, GMP), using automated testing algorithms and quality benchmarks to assess products in real-time, ensuring compliance before acceptance.',
+  },
+  {
+    question: 'How does the module test the quality of medicines and consumables?',
+    answer: 'The system utilizes a combination of automated chemical analysis, spectrometry, physical inspection via image recognition, and machine learning models to detect defects or irregularities.',
+  },
+  {
+    question: 'What happens if a batch of medicines or consumables fails the quality check?',
+    answer: 'If a batch fails the quality check, the system automatically rejects it, notifies the relevant stakeholders, and records the details of the rejection for auditing.',
+  },
+  {
+    question: 'Can the system provide real-time updates on the status of received shipments?',
+    answer: 'Yes, the system offers real-time monitoring and updates, allowing hospital administrators and procurement teams to track the status of incoming supplies.',
+  },
+  {
+    question: 'What are the benefits of using this system compared to manual quality control?',
+    answer: 'The system offers increased accuracy, faster testing, consistent compliance checks, and cost savings by reducing manual labor and minimizing the acceptance of low-quality supplies.',
+  },
+];
+
 const Home = () => {
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+  const toggleFaq = (index) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
+  };
+
   return (
     <div className="home-container">
       <h1>Welcome to the Quality Monitoring System</h1>
@@ -56,6 +85,20 @@ const Home = () => {
             <img src={feature.img} alt={feature.title} className="feature-img" />
             <h3 className="feature-title">{feature.title}</h3>
             <p className="feature-info">{feature.info}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* FAQ Section */}
+      <section className="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        {faqs.map((faq, index) => (
+          <div key={index} className={`faq-card ${openFaqIndex === index ? 'open' : ''}`} onClick={() => toggleFaq(index)}>
+            <div className="faq-question">
+              <span>{faq.question}</span>
+              <span className={`arrow ${openFaqIndex === index ? 'open' : ''}`}>&#9660;</span>
+            </div>
+            {openFaqIndex === index && <p className="faq-answer">{faq.answer}</p>}
           </div>
         ))}
       </section>

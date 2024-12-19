@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaCheck } from "react-icons/fa";
+import { FaCheckCircle } from "react-icons/fa";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,20 +19,21 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
     setSubmitted(true);
-    // You can also add form submission logic here (e.g., send data to a server)
+    console.log("Form submitted:", formData);
   };
 
   return (
     <div className="contact-container">
       <h2>Contact Us</h2>
       {submitted ? (
-        <p className="submitted-message">
-          Thank you! Your form has been submitted! Our team will get back to you shortly.
-        </p>
+        <div className="submitted-message show">
+          <FaCheckCircle size={40} color="#4CAF50" />
+          <p>Thank you! Your form has been submitted!</p>
+          <p>Our team will get back to you shortly.</p>
+        </div>
       ) : (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="contact-form">
           <div className="form-group">
             <label htmlFor="hospitalName">Hospital Name:</label>
             <input
@@ -41,6 +42,7 @@ const Contact = () => {
               name="hospitalName"
               value={formData.hospitalName}
               onChange={handleChange}
+              placeholder="Enter hospital name"
               required
             />
           </div>
@@ -52,6 +54,7 @@ const Contact = () => {
               name="hospitalEmail"
               value={formData.hospitalEmail}
               onChange={handleChange}
+              placeholder="Enter hospital email"
               required
             />
           </div>
@@ -62,10 +65,11 @@ const Contact = () => {
               name="remark"
               value={formData.remark}
               onChange={handleChange}
+              placeholder="Any additional information"
             />
           </div>
           <button type="submit" className="submit-btn">
-            Submit <FaCheck />
+            Submit <FaCheckCircle />
           </button>
         </form>
       )}
