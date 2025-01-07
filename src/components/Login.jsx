@@ -9,7 +9,7 @@ const Login = ({ setLoggedIn }) => {
   const navigate = useNavigate();
 
   // Hardcoded credentials
-  const validUsername = 'archin@0106';
+  const validUsername = 'somya';
   const validPassword = 'prajwal@p1111';
 
   // Handle Login
